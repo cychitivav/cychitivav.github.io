@@ -1,0 +1,26 @@
+name: Deploy from React.js
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - id: build-publish
+        uses: bitovi/github-actions-react-to-github-pages@v1.2.0
+        with:
+          path: build
