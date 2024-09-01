@@ -9,6 +9,7 @@ on:
             - "public/**"
             - "package.json"
             - "package-lock.json"
+            - ".github/workflows/**"
     workflow_dispatch:
 
 # Allow this job to clone the repo and create a page deployment
