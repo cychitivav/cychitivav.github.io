@@ -36,7 +36,8 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^4.15.1"
+		"astro": "^4.15.1",
+		"sass": "^1.77.8"
 	},
 	"devDependencies": {
 		"eslint": "^9.9.1",
