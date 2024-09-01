@@ -1,4 +1,4 @@
-name: Deploy from Next.js
+name: Deploy
 
 on:
     push:
