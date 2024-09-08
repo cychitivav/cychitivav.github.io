@@ -8,20 +8,22 @@ const { title } = Astro.props
 		<meta charset="UTF-8" />
 		<meta name="description" content="Personal website of Cristian Chitiva" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="author" content="Cristian Chitiva" />
 
 		<link rel="icon" type="image/icon" href="/favicon.ico" />
 
 		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
 		<title>{title}</title>
 	</head>
 
 	<body>
 		<nav>
-			<a href="/">Icon</a>
+			<a href="/">Home</a>
 
 			<ul>
 				<li>
-					<a href="/">Home</a>
+					<a href="/projects">Projects</a>
 				</li>
 				<li>
 					<a href="/about">About</a>
@@ -68,6 +70,7 @@ const { title } = Astro.props
 
 		font-family: "Roboto", sans-serif;
 		font-size: clamp(16px, 1vw, 18px);
+		color-scheme: light dark;
 	}
 
 	body {
@@ -129,7 +132,10 @@ const { title } = Astro.props
 		width: 100dvw;
 		overflow-x: hidden;
 
-		background: radial-gradient(hsl(180, 100%, 15%), hsl(180, 100%, 1%));
+		background:
+			radial-gradient(farthest-corner at top, #000000 0%, #016e6044 50%) top right/200% 200%,
+			#000;
+		animation: colorChange 5s infinite alternate;
 		color: #fff;
 	}
 
@@ -139,5 +145,11 @@ const { title } = Astro.props
 		justify-content: space-between;
 		align-items: center;
 		padding: 1rem 2rem;
+	}
+
+	@keyframes colorChange {
+		to {
+			background-position: top left;
+		}
 	}
 </style>
