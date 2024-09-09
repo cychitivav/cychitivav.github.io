@@ -1,0 +1,38 @@
+---
+
+---
+
+<nav>
+	<a href="/">Home</a>
+	<a href="/about">About</a>
+	<a href="/contact">Contact</a>
+	<a href="/resume.pdf" target="_blank" download="Cristian_Chitiva_CV.pdf" class="cv">CV</a>
+</nav>
+
+<style lang="scss">
+	nav {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 0;
+	}
+
+	a {
+		text-decoration: none;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.3rem;
+		min-width: 4rem;
+		text-align: center;
+	}
+
+	.cv {
+		border: 1px solid #fff;
+		transition: all 0.2s ease;
+
+		&:hover {
+			background-color: #fff;
+			color: #000;
+		}
+	}
+</style>
