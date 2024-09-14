@@ -2,37 +2,85 @@
 
 ---
 
-<nav>
-	<a href="/">Home</a>
-	<a href="/about">About</a>
-	<a href="/contact">Contact</a>
-	<a href="/resume.pdf" target="_blank" download="Cristian_Chitiva_CV.pdf" class="cv">CV</a>
-</nav>
+<header>
+	<nav>
+		<span class="underline"></span>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Experience</a></li>
+			<li><a href="#">Projects</a></li>
+			<li><a href="#">About Me</a></li>
+			<li><a href="#">Projects</a></li>
+			<li><a href="#">Get in Touch</a></li>
+		</ul>
+	</nav>
+</header>
+
+<script>
+	const links = document.querySelectorAll(
+		"nav ul li:not(:last-child) a",
+	) as NodeListOf<HTMLAnchorElement>
+	const underline = document.querySelector(".underline") as HTMLSpanElement
+
+	links.forEach((link) => {
+		link.addEventListener("mouseover", () => {
+			underline.style.left = `${link.offsetLeft}px`
+			underline.style.width = `${link.offsetWidth}px`
+		})
+	})
+</script>
 
 <style lang="scss">
-	nav {
+	header {
 		display: flex;
-		justify-content: flex-end;
 		align-items: center;
-		gap: 1rem;
-		padding: 1rem 0;
+		justify-content: flex-end;
+		padding: 15px;
+		position: relative;
+
+		background-image: linear-gradient(to bottom, #000 0%, #00000000 100%);
 	}
 
-	a {
-		text-decoration: none;
-		padding: 0.25rem 0.5rem;
-		border-radius: 0.3rem;
-		min-width: 4rem;
-		text-align: center;
+	nav,
+	ul,
+	li {
+		display: contents;
+		list-style: none;
 	}
 
-	.cv {
+	li:not(:last-child) a {
+		padding: 5px 10px;
+
+		&:hover {
+			filter: brightness(1.2);
+		}
+	}
+
+	li:last-child a {
 		border: 1px solid #fff;
-		transition: all 0.2s ease;
+		border-radius: 1em;
+		padding: 5px 15px;
+		margin-left: 10px;
+		transition: all 0.3s;
 
 		&:hover {
 			background-color: #fff;
 			color: #000;
 		}
+	}
+
+	nav:has(li:not(:last-child):hover) .underline {
+		opacity: 1;
+		background-color: #fff;
+	}
+
+	.underline {
+		opacity: 0;
+		width: 10px;
+		height: 1px;
+		background-color: transparent;
+		align-self: flex-end;
+		position: absolute;
+		transition: all 0.3s;
 	}
 </style>
