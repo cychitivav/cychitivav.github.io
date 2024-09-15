@@ -1,0 +1,26 @@
+---
+
+---
+
+<div {...Astro.props} data-particles-id="particles"></div>
+
+<script>
+	import { loadFull } from "tsparticles"
+	import { tsParticles } from "@tsparticles/engine"
+	import type { ISourceOptions } from "@tsparticles/engine"
+
+	import particleOptions from "../assets/particles.json"
+
+	const container: HTMLElement = document.querySelector(`[data-particles-id="particles"]`)
+
+	const loadParticles = async () => {
+		await loadFull(tsParticles)
+
+		await tsParticles.load({
+			element: container,
+			options: particleOptions as ISourceOptions,
+		})
+	}
+
+	loadParticles()
+</script>

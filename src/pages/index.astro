@@ -1,44 +1,8 @@
 ---
+import Home from "@components/Home.astro"
 import Layout from "../layouts/Root.astro"
 ---
 
 <Layout title="Cristian Chitiva">
-	<section>
-		<h1>
-			I&apos;m <span>Cristian Chitiva</span>
-		</h1>
-		<h2>Robotics Software Engineer & Fullstack Developer</h2>
-
-		<!-- <a href="/contact"> Contact Me </a> -->
-	</section>
+	<Home />
 </Layout>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		flex: 1;
-	}
-	h1 {
-		font-size: 3rem;
-	}
-
-	h1 span {
-		font-size: 4rem;
-		font-weight: bold;
-	}
-
-	h2 {
-		font-size: 1.25rem;
-		margin-bottom: 1rem;
-	}
-
-	a {
-		padding: 0.5rem 1rem;
-		border-radius: 0.5rem;
-		background-color: var(--primary);
-		color: #fff;
-		text-decoration: none;
-	}
-</style>
