@@ -23,4 +23,16 @@
 	}
 
 	loadParticles()
+
+	// Dark mode detection
+	const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+	particleOptions.particles.color.value = media.matches ? "#ffffff" : "#000000"
+	particleOptions.particles.links.color.value = media.matches ? "#ffffff" : "#000000"
+
+	media?.addEventListener("change", (event) => {
+		const newColorScheme = event.matches ? "#ffffff" : "#000000"
+
+		particleOptions.particles.color.value = newColorScheme
+		particleOptions.particles.links.color.value = newColorScheme
+	})
 </script>
