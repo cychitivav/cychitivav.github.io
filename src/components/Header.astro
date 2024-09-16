@@ -8,7 +8,7 @@
 		<div class="overlay"></div>
 
 		<span class="underline"></span>
-		
+
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="#">About Me</a></li>
@@ -157,7 +157,7 @@
 
 			span {
 				display: block;
-				width: 30px;
+				width: 25px;
 				height: 3px;
 				background-color: #fff;
 				transition: all var(--animation-time);
@@ -173,7 +173,7 @@
 			filter: invert(1) hue-rotate(180deg);
 
 			span:nth-child(1) {
-				transform: translate(-2.45px, 7px) rotate(180deg + 45deg);
+				transform: translate(-3.45px, 7px) rotate(180deg + 45deg);
 				width: 15px;
 			}
 
@@ -182,7 +182,7 @@
 			}
 
 			span:nth-child(3) {
-				transform: translate(-2.45px, -7px) rotate(180deg - 45deg);
+				transform: translate(-3.45px, -7px) rotate(180deg - 45deg);
 				width: 15px;
 			}
 
@@ -248,5 +248,11 @@
 		hamburger.classList.toggle("open")
 		overlay.style.opacity = hamburger.classList.contains("open") ? "1" : "0"
 		overlay.style.zIndex = hamburger.classList.contains("open") ? "1" : "-100"
+	})
+
+	overlay.addEventListener("click", () => {
+		hamburger.classList.remove("open")
+		overlay.style.opacity = "0"
+		overlay.style.zIndex = "-100"
 	})
 </script>
