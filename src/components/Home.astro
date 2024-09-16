@@ -18,7 +18,7 @@ import Me from "./Me.astro"
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		height: 100vh;
+		height: 100svh;
 		width: min(90%, 1600px);
 	}
 	h1 {
@@ -39,6 +39,7 @@ import Me from "./Me.astro"
 	@media (width <= 768px) {
 		section {
 			align-items: center;
+			justify-content: flex-end;
 		}
 
 		h1,
