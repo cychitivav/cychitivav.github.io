@@ -7,9 +7,8 @@
 		<span class="underline"></span>
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="#">Experience</a></li>
-			<li><a href="#">Projects</a></li>
 			<li><a href="#">About Me</a></li>
+			<li><a href="#">Experience</a></li>
 			<li><a href="#">Projects</a></li>
 			<li><a href="#">Get in Touch</a></li>
 		</ul>
@@ -26,7 +25,14 @@
 		link.addEventListener("mouseover", () => {
 			underline.style.left = `${link.offsetLeft}px`
 			underline.style.width = `${link.offsetWidth}px`
+			underline.style.animation = "move 0.3s"
 		})
+	})
+
+	underline.parentElement.addEventListener("mouseleave", () => {
+		underline.style.width = "0"
+		underline.style.left = "unset"
+		underline.style.animation = "none"
 	})
 </script>
 
@@ -90,5 +96,14 @@
 		position: absolute;
 		transition: all 0.3s;
 		z-index: 100;
+	}
+
+	@keyframes move {
+		from {
+			transform: translateX(50%);
+		}
+		to {
+			transform: translateX(0);
+		}
 	}
 </style>
