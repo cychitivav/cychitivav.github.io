@@ -25,14 +25,12 @@
 		link.addEventListener("mouseover", () => {
 			underline.style.left = `${link.offsetLeft}px`
 			underline.style.width = `${link.offsetWidth}px`
-			underline.style.animation = "move 0.3s"
 		})
 	})
 
 	underline.parentElement.addEventListener("mouseleave", () => {
 		underline.style.width = "0"
 		underline.style.left = "unset"
-		underline.style.animation = "none"
 	})
 </script>
 
@@ -85,6 +83,10 @@
 	nav:has(li:not(:last-child):hover) .underline {
 		opacity: 1;
 		background: linear-gradient(90deg, #004236, #2f8872, #004236);
+	}
+
+	nav:hover .underline {
+		animation: move 0.3s;
 	}
 
 	.underline {
