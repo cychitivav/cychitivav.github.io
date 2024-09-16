@@ -1,0 +1,68 @@
+---
+import XIcon from "../assets/icons/X.astro"
+import GitHubIcon from "../assets/icons/GitHub.astro"
+import LinkedInIcon from "../assets/icons/LinkedIn.astro"
+---
+
+<section>
+	<div class="rule"></div>
+	<ul>
+		<li>
+			<a
+				href="https://github.com/cychitivav"
+				title="GitHub"
+				aria-label="GitHub"
+				target="_blank">
+				<GitHubIcon />
+			</a>
+		</li>
+		<li>
+			<a
+				href="https://www.linkedin.com/in/cychitivav/"
+				title="LinkedIn"
+				aria-label="LinkedIn"
+				target="_blank">
+				<LinkedInIcon />
+			</a>
+		</li>
+		<li>
+			<a href="https://x.com/CChitiva7" title="X" aria-label="X" target="_blank">
+				<XIcon />
+			</a>
+		</li>
+	</ul>
+</section>
+
+<style>
+	section {
+		position: fixed;
+		bottom: 1rem;
+		right: 1.5rem;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	ul {
+		list-style: none;
+		display: contents;
+	}
+
+	li {
+		display: contents;
+	}
+
+	a {
+		width: 1.5rem;
+		aspect-ratio: 1;
+		fill: white;
+	}
+
+	.rule {
+		width: 4px;
+		height: 5rem;
+		background: linear-gradient(to bottom, #004236, #2f8872);
+	}
+</style>

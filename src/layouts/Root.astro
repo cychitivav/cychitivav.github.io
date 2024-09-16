@@ -4,6 +4,7 @@ import { ViewTransitions } from "astro:transitions"
 
 import Header from "@components/Header.astro"
 import Particles from "@components/Particles.astro"
+import SocialLinks from "@components/SocialLinks.astro"
 ---
 
 <!doctype html>
@@ -33,6 +34,8 @@ import Particles from "@components/Particles.astro"
 		<Particles transition:persist />
 
 		<slot />
+
+		<SocialLinks />
 	</body>
 </html>
 
@@ -42,7 +45,7 @@ import Particles from "@components/Particles.astro"
 		flex-direction: column;
 		align-items: center;
 
-		background: linear-gradient(to bottom right, #000000 0%, #004c4244 80%), #000;
+		background: linear-gradient(to bottom right, #000000 0%, #006b5c44 80%), #000;
 		background-size: 200% 200%;
 		// animation:
 		// 	loader 2s ease forwards,
