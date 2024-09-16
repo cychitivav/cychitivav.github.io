@@ -3,13 +3,14 @@ import Me from "./Me.astro"
 ---
 
 <section>
+	<Me />
+
 	<h1>
 		I&apos;m <span>Cristian Chitiva</span>
 	</h1>
 	<h2>Robotics Software Engineer & Fullstack Developer</h2>
 
 	<!-- <a href="/contact"> Contact Me </a> -->
-	<Me />
 </section>
 
 <style>
@@ -18,8 +19,7 @@ import Me from "./Me.astro"
 		flex-direction: column;
 		justify-content: center;
 		flex: 1;
-		width: min(100%, 1600px);
-		padding: 0 50px;
+		width: min(90%, 1600px);
 	}
 	h1 {
 		font-size: 3rem;
@@ -33,5 +33,17 @@ import Me from "./Me.astro"
 	h2 {
 		font-size: 1.25rem;
 		margin-bottom: 1rem;
+	}
+
+	@media (width <= 768px) {
+		section {
+			align-items: center;
+		}
+
+		h1,
+		h2 {
+			text-align: center;
+			text-wrap: balance;
+		}
 	}
 </style>

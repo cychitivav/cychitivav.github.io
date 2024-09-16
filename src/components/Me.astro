@@ -17,4 +17,12 @@ import { Image } from "astro:assets"
 
 		mask-image: linear-gradient(to top right, #0000 10%, #000 55%);
 	}
+
+	@media (width <= 768px) {
+		.me {
+			position: static;
+			height: auto;
+			width: 100vw;
+		}
+	}
 </style>
