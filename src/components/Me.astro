@@ -1,4 +1,8 @@
-<img class="me" src="/images/me.webp" alt="A black and white photo of me" />
+---
+import { Image } from "astro:assets"
+---
+
+<Image class="me" src="/images/me.webp" alt="Me" width={1000} height={1000} loading="eager" />
 
 <style>
 	.me {
