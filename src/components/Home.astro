@@ -18,7 +18,7 @@ import Me from "./Me.astro"
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		flex: 1;
+		height: 100vh;
 		width: min(90%, 1600px);
 	}
 	h1 {
@@ -28,6 +28,7 @@ import Me from "./Me.astro"
 	h1 span {
 		font-size: 4rem;
 		font-weight: bold;
+		color: #2f8872;
 	}
 
 	h2 {
@@ -44,6 +45,12 @@ import Me from "./Me.astro"
 		h2 {
 			text-align: center;
 			text-wrap: balance;
+		}
+	}
+
+	@media (prefers-color-scheme: light) {
+		h1 span {
+			color: #007862;
 		}
 	}
 </style>

@@ -63,6 +63,16 @@ import LinkedInIcon from "../assets/icons/LinkedIn.astro"
 	.rule {
 		width: 4px;
 		height: 5rem;
-		background: linear-gradient(to bottom, #004236, #2f8872);
+		background: linear-gradient(to bottom, #004236, #2f8872, #004236);
+	}
+
+	@media (prefers-color-scheme: light) {
+		a {
+			fill: black;
+		}
+
+		.rule {
+			background: linear-gradient(to bottom, #2f8872, #004236, #2f8872);
+		}
 	}
 </style>

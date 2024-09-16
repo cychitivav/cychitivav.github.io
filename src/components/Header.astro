@@ -108,4 +108,19 @@
 			transform: translateX(0);
 		}
 	}
+
+	@media (prefers-color-scheme: light) {
+		li:last-child a {
+			border-color: #000;
+
+			&:hover {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+
+		nav:has(li:not(:last-child):hover) .underline {
+			background: linear-gradient(90deg, #004236, #2f8872, #004236);
+		}
+	}
 </style>

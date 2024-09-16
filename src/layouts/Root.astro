@@ -44,8 +44,10 @@ import SocialLinks from "@components/SocialLinks.astro"
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		overflow-y: auto;
 
-		background: radial-gradient(circle, #00514644 20%, #0000 60%), #000;
+		background-image: radial-gradient(circle, #00514644 20%, #0000 60%);
+		background-color: #000;
 		background-size: 200% 200%;
 		animation: moveGradient 30s ease-in-out infinite alternate;
 		color: #fff;
@@ -76,6 +78,13 @@ import SocialLinks from "@components/SocialLinks.astro"
 			mask-image: radial-gradient(circle, #000, #000);
 		}
 	}
+
+	@media (prefers-color-scheme: light) {
+		body {
+			color: #000;
+			background-color: #fff;
+		}
+	}
 </style>
 
 <style is:global>
@@ -104,7 +113,6 @@ import SocialLinks from "@components/SocialLinks.astro"
 	:root {
 		height: 100dvh;
 		width: 100dvw;
-		overflow: hidden;
 
 		font-family: "Roboto", sans-serif;
 		font-size: clamp(16px, 1vw, 18px);
