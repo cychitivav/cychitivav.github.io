@@ -230,7 +230,7 @@
 			},
 			"limit": {
 				"mode": "wait",
-				"value": 300
+				"value": 400
 			},
 			"value": 100
 		},
