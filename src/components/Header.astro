@@ -23,6 +23,8 @@
 		right: 2.5vw;
 		left: 2.5vw;
 		z-index: 2;
+
+		--animation-time: 0.4s;
 	}
 
 	ul {
@@ -46,10 +48,6 @@
 
 	a:not(.contact) {
 		padding: 5px 10px;
-
-		&:hover {
-			filter: brightness(1.2);
-		}
 	}
 
 	a.contact {
@@ -57,7 +55,7 @@
 		border-radius: 1em;
 		padding: 5px 15px;
 		margin-left: 10px;
-		transition: all 0.3s;
+		transition: all var(--animation-time);
 
 		&:hover {
 			background-color: #fff;
@@ -65,40 +63,21 @@
 		}
 	}
 
-	nav:has(a:not(.contact):hover) .underline {
-		opacity: 1;
-		background: linear-gradient(90deg, #004236, #2f8872, #004236);
-	}
-
-	nav:hover .underline {
-		animation: move 0.3s;
-	}
-
 	.underline {
-		opacity: 0;
 		width: 0;
 		height: 2px;
 		background-color: transparent;
 		align-self: flex-end;
 		position: absolute;
-		transition: all 0.3s;
+		transition:
+			left var(--animation-time),
+			width var(--animation-time);
 		z-index: 100;
-	}
-
-	@keyframes move {
-		from {
-			transform: translateX(50%);
-		}
-		to {
-			transform: translateX(0);
-		}
+		background: linear-gradient(90deg, #004236, #2f8872, #004236);
+		transform: translateX(-50%);
 	}
 
 	@media (width <= 768px) {
-		nav {
-			--animation-time: 0.4s;
-		}
-
 		ul {
 			position: fixed;
 			top: 0;
@@ -119,7 +98,7 @@
 			border-radius: 0;
 
 			transform: translateX(100%);
-			transition: transform var(--animation-time);
+			transition: transform var(--animation-time) ease-in;
 
 			a {
 				font-size: 1.5rem;
@@ -211,7 +190,7 @@
 
 	links.forEach((link) => {
 		link.addEventListener("mouseover", () => {
-			underline.style.left = `${link.offsetLeft}px`
+			underline.style.left = `${link.offsetLeft + link.offsetWidth / 2}px`
 			underline.style.width = `${link.offsetWidth}px`
 		})
 	})
