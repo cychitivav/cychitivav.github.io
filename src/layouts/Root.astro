@@ -2,7 +2,6 @@
 import "@fontsource/roboto"
 import { ViewTransitions } from "astro:transitions"
 
-import Header from "@components/Header.astro"
 import Particles from "@components/Particles.astro"
 ---
 
@@ -29,7 +28,6 @@ import Particles from "@components/Particles.astro"
 	</head>
 
 	<body>
-		<Header transition:persist />
 		<Particles transition:persist />
 
 		<slot />
