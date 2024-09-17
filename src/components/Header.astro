@@ -235,17 +235,8 @@ import "@fontsource/mr-dafoe"
 
 <script>
 	const hamburger = document.querySelector(".hamburger") as HTMLDivElement
-	const overlay = document.querySelector(".overlay") as HTMLDivElement
 
 	hamburger.addEventListener("click", () => {
 		hamburger.classList.toggle("open")
-		overlay.style.opacity = hamburger.classList.contains("open") ? "1" : "0"
-		overlay.style.zIndex = hamburger.classList.contains("open") ? "1" : "-100"
-	})
-
-	overlay.addEventListener("click", () => {
-		hamburger.classList.remove("open")
-		overlay.style.opacity = "0"
-		overlay.style.zIndex = "-100"
 	})
 </script>
