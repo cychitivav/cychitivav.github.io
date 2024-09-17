@@ -128,6 +128,7 @@ import "@fontsource/mr-dafoe"
 
 			background-color: #000;
 			color: #fff;
+			border-radius: 0;
 
 			transform: translateX(100%);
 			transition: transform var(--animation-time);
@@ -183,33 +184,34 @@ import "@fontsource/mr-dafoe"
 		}
 	}
 
-	// @media (prefers-color-scheme: light) {
-	// 	li:last-child a {
-	// 		border-color: #000;
+	@media (prefers-color-scheme: light) {
+		ul {
+			color: #000;
+		}
 
-	// 		&:hover {
-	// 			background-color: #000;
-	// 			color: #fff;
-	// 		}
-	// 	}
+		a.contact {
+			border-color: #000;
 
-	// 	nav:has(li:not(:last-child):hover) .underline {
-	// 		background: linear-gradient(90deg, #004236, #2f8872, #004236);
-	// 	}
+			&:hover {
+				background-color: #000;
+				color: #fff;
+			}
+		}
 
-	// 	// .hamburger span {
-	// 	// 	background-color: #000;
-	// 	// }
+		nav:has(li:not(:last-child):hover) .underline {
+			background: linear-gradient(90deg, #004236, #2f8872, #004236);
+		}
 
-	// 	// .overlay {
-	// 	// 	background: #00000093;
-	// 	// }
+		.hamburger span {
+			background-color: #000;
+		}
 
-	// 	// ul {
-	// 	// 	background-color: #fff;
-	// 	// 	color: #000;
-	// 	// }
-	// }
+		@media (width <= 768px) {
+			ul {
+				background-color: #fff;
+			}
+		}
+	}
 </style>
 
 <script>
