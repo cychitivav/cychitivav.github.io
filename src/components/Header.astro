@@ -106,6 +106,12 @@
 
 			a {
 				font-size: 1.5rem;
+
+				opacity: 0;
+				transform: translateY(1em);
+				transition:
+					opacity var(--animation-time),
+					transform 10s;
 			}
 		}
 
@@ -152,6 +158,19 @@
 
 			~ ul {
 				transform: translateX(0);
+
+				@for $i from 1 through 5 {
+					li:nth-child(#{$i}) a {
+						opacity: 1;
+						transform: translateY(0);
+
+						$delay: $i * 0.1s;
+						transition:
+							opacity var(--animation-time),
+							transform var(--animation-time);
+						transition-delay: $delay;
+					}
+				}
 			}
 		}
 	}
