@@ -1,15 +1,14 @@
 ---
-
+import "@fontsource/mr-dafoe"
 ---
 
 <header {...Astro.props}>
 	<nav>
+		<a href="/" class="logo">Cristian Chitiva</a>
+
 		<div class="hamburger"><span></span><span></span><span></span></div>
-
-		<span class="underline"></span>
-
 		<ul>
-			<li><a href="/">Home</a></li>
+			<span class="underline"></span>
 			<li><a href="#">About Me</a></li>
 			<li><a href="#">Experience</a></li>
 			<li><a href="#">Projects</a></li>
@@ -22,33 +21,47 @@
 	nav {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
+
+		position: fixed;
+		top: 10px;
+		right: 2.5vw;
+		left: 2.5vw;
+		z-index: 2;
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
 		justify-content: flex-end;
 		border-radius: 1.5em;
 		overflow: hidden;
-
-		position: fixed;
 		padding: 5px;
-		top: 10px;
-		right: 10px;
-		z-index: 2;
+		padding-left: 10px;
 
 		// Background for scroll
 		// background: #b4b4b42b;
 		// backdrop-filter: blur(10px);
 	}
 
-	ul,
 	li {
 		display: contents;
 		list-style: none;
 	}
 
-	a:not(.contact) {
+	a:not(.contact .logo) {
 		padding: 5px 10px;
 
 		&:hover {
 			filter: brightness(1.2);
 		}
+	}
+
+	a.logo {
+		font-family: "Mr Dafoe", sans-serif;
+		font-size: 1.5rem;
+		flex: 1;
+		z-index: 10;
 	}
 
 	a.contact {
@@ -95,7 +108,6 @@
 
 	@media (width <= 768px) {
 		nav {
-			display: contents;
 			--animation-time: 0.4s;
 		}
 
@@ -105,14 +117,14 @@
 			right: 0;
 			left: 0;
 			bottom: 0;
-			z-index: 9;
+			z-index: 2;
 			padding: 5vh 5vw;
 
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 			justify-content: flex-end;
-			gap: 2.5rem;
+			gap: 2rem;
 
 			background-color: #000;
 			color: #fff;
@@ -121,20 +133,16 @@
 			transition: transform var(--animation-time);
 
 			a {
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 		}
 
 		.hamburger {
-			position: fixed;
-			top: 20px;
-			right: 20px;
-			z-index: 10;
-
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 			align-items: flex-start;
+			z-index: 3;
 
 			width: 35px;
 			height: 25px;

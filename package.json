@@ -36,6 +36,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@fontsource/mr-dafoe": "^5.1.0",
 		"@fontsource/roboto": "^5.0.15",
 		"@tsparticles/engine": "^3.5.0",
 		"astro": "^4.15.1",
