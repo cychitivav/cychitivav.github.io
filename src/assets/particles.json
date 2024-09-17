@@ -229,8 +229,8 @@
 				"height": 1080
 			},
 			"limit": {
-				"mode": "delete",
-				"value": 0
+				"mode": "wait",
+				"value": 300
 			},
 			"value": 100
 		},
