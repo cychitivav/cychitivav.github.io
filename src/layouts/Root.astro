@@ -4,7 +4,6 @@ import { ViewTransitions } from "astro:transitions"
 
 import Header from "@components/Header.astro"
 import Particles from "@components/Particles.astro"
-import SocialLinks from "@components/SocialLinks.astro"
 ---
 
 <!doctype html>
@@ -34,8 +33,6 @@ import SocialLinks from "@components/SocialLinks.astro"
 		<Particles transition:persist />
 
 		<slot />
-
-		<SocialLinks />
 	</body>
 </html>
 
@@ -45,7 +42,7 @@ import SocialLinks from "@components/SocialLinks.astro"
 		flex-direction: column;
 		align-items: center;
 		overflow-y: auto;
-		padding: 0 5vw;
+		padding: 0 2.5vw;
 
 		background-image: radial-gradient(circle, #00514644 20%, #0000 60%);
 		background-color: #000;
