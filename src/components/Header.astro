@@ -1,14 +1,9 @@
----
-import "@fontsource/mr-dafoe"
----
-
 <header {...Astro.props}>
 	<nav>
-		<a href="/" class="logo">Cristian Chitiva</a>
-
 		<div class="hamburger"><span></span><span></span><span></span></div>
+		<span class="underline"></span>
 		<ul>
-			<span class="underline"></span>
+			<li><a href="/">Home</a></li>
 			<li><a href="#">About Me</a></li>
 			<li><a href="#">Experience</a></li>
 			<li><a href="#">Projects</a></li>
@@ -49,19 +44,12 @@ import "@fontsource/mr-dafoe"
 		list-style: none;
 	}
 
-	a:not(.contact .logo) {
+	a:not(.contact) {
 		padding: 5px 10px;
 
 		&:hover {
 			filter: brightness(1.2);
 		}
-	}
-
-	a.logo {
-		font-family: "Mr Dafoe", sans-serif;
-		font-size: 1.5rem;
-		flex: 1;
-		z-index: 10;
 	}
 
 	a.contact {
