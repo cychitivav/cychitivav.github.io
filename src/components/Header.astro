@@ -5,7 +5,6 @@
 <header {...Astro.props}>
 	<nav>
 		<div class="hamburger"><span></span><span></span><span></span></div>
-		<div class="overlay"></div>
 
 		<span class="underline"></span>
 
@@ -85,11 +84,6 @@
 		z-index: 100;
 	}
 
-	.overlay {
-		opacity: 0;
-		transition: opacity var(--animation-time);
-	}
-
 	@keyframes move {
 		from {
 			transform: translateX(50%);
@@ -100,21 +94,6 @@
 	}
 
 	@media (width <= 768px) {
-		.overlay {
-			background: #a0a0a093;
-			backdrop-filter: blur(5px);
-
-			position: fixed;
-			top: 0;
-			left: 0;
-
-			width: 100vw;
-			height: 100vh;
-
-			z-index: -100;
-			// backdrop-filter: blur(10px);
-		}
-
 		nav {
 			display: contents;
 			--animation-time: 0.4s;
@@ -124,19 +103,26 @@
 			position: fixed;
 			top: 0;
 			right: 0;
-			z-index: 100;
-			height: 100vh;
-			width: 80vw;
+			left: 0;
+			bottom: 0;
+			z-index: 9;
+			padding: 5vh 5vw;
 
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			align-items: flex-start;
+			justify-content: flex-end;
+			gap: 2.5rem;
 
 			background-color: #000;
 			color: #fff;
 
 			transform: translateX(100%);
 			transition: transform var(--animation-time);
+
+			a {
+				font-size: 2rem;
+			}
 		}
 
 		.hamburger {
@@ -169,9 +155,6 @@
 		}
 
 		.hamburger.open {
-			transform: translateX(-80vw);
-			filter: invert(1) hue-rotate(180deg);
-
 			span:nth-child(1) {
 				transform: translate(-3.45px, 7px) rotate(180deg + 45deg);
 				width: 15px;
@@ -192,33 +175,33 @@
 		}
 	}
 
-	@media (prefers-color-scheme: light) {
-		li:last-child a {
-			border-color: #000;
+	// @media (prefers-color-scheme: light) {
+	// 	li:last-child a {
+	// 		border-color: #000;
 
-			&:hover {
-				background-color: #000;
-				color: #fff;
-			}
-		}
+	// 		&:hover {
+	// 			background-color: #000;
+	// 			color: #fff;
+	// 		}
+	// 	}
 
-		nav:has(li:not(:last-child):hover) .underline {
-			background: linear-gradient(90deg, #004236, #2f8872, #004236);
-		}
+	// 	nav:has(li:not(:last-child):hover) .underline {
+	// 		background: linear-gradient(90deg, #004236, #2f8872, #004236);
+	// 	}
 
-		.hamburger span {
-			background-color: #000;
-		}
+	// 	// .hamburger span {
+	// 	// 	background-color: #000;
+	// 	// }
 
-		.overlay {
-			background: #00000093;
-		}
+	// 	// .overlay {
+	// 	// 	background: #00000093;
+	// 	// }
 
-		ul {
-			background-color: #fff;
-			color: #000;
-		}
-	}
+	// 	// ul {
+	// 	// 	background-color: #fff;
+	// 	// 	color: #000;
+	// 	// }
+	// }
 </style>
 
 <script>
