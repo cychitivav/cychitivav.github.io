@@ -55,7 +55,7 @@
 		border-radius: 1em;
 		padding: 5px 15px;
 		margin-left: 10px;
-		transition: all var(--animation-time);
+		transition: all var(--animation-time) ease-in;
 
 		&:hover {
 			background-color: #fff;
@@ -70,8 +70,8 @@
 		align-self: flex-end;
 		position: absolute;
 		transition:
-			left var(--animation-time),
-			width var(--animation-time);
+			left var(--animation-time) ease-in-out,
+			width var(--animation-time) ease-in-out;
 		z-index: 100;
 		background: linear-gradient(90deg, #004236, #2f8872, #004236);
 		transform: translateX(-50%);
@@ -110,8 +110,8 @@
 				opacity: 0;
 				transform: translateY(1em);
 				transition:
-					opacity var(--animation-time),
-					transform 10s;
+					opacity var(--animation-time) ease-in,
+					transform 10s ease-in;
 			}
 		}
 
@@ -126,14 +126,14 @@
 			width: 35px;
 			height: 25px;
 			cursor: pointer;
-			transition: transform var(--animation-time);
+			transition: transform var(--animation-time) ease-in;
 
 			span {
 				display: block;
 				width: 25px;
 				height: 3px;
 				background-color: #fff;
-				transition: all var(--animation-time);
+				transition: all var(--animation-time) ease-in;
 
 				&:nth-child(odd) {
 					align-self: flex-end;
@@ -166,8 +166,8 @@
 
 						$delay: $i * 0.1s;
 						transition:
-							opacity var(--animation-time),
-							transform var(--animation-time);
+							opacity var(--animation-time) ease-in,
+							transform var(--animation-time) ease-in;
 						transition-delay: $delay;
 					}
 				}
