@@ -26,7 +26,6 @@
 		position: fixed;
 		top: 2.5vh;
 		right: 2.5vw;
-		left: 2.5vw;
 		z-index: 2;
 
 		--animation-time: 0.4s;
@@ -227,11 +226,8 @@
 		})
 	})
 
-	underline.parentElement.addEventListener("mouseleave", () => {
-		underline.style.width = "0"
-		underline.style.left = "unset"
-	})
-	
+	underline.parentElement.addEventListener("mouseleave", () => (underline.style.width = "0"))
+
 	hamburger.addEventListener("click", () => {
 		hamburger.classList.toggle("open")
 	})
