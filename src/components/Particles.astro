@@ -7,14 +7,12 @@
 <script>
 	import { loadFull } from "tsparticles"
 	import { tsParticles } from "@tsparticles/engine"
-	import type { ISourceOptions } from "@tsparticles/engine"
 
 	import particleOptions from "../assets/particles.json"
-
-	const container: HTMLElement = document.querySelector(`[data-particles-id="particles"]`)
+	import type { ISourceOptions } from "@tsparticles/engine"
 
 	const loadParticles = async () => {
-		console.log("Loading particles")
+		const container: HTMLElement = document.querySelector(`[data-particles-id="particles"]`)
 		await loadFull(tsParticles)
 
 		await tsParticles.load({
