@@ -1,6 +1,6 @@
 <header {...Astro.props}>
 	<nav>
-		<div class="hamburger" onclick="this.classList.toggle('open')">
+		<div class="hamburger">
 			<span></span>
 			<span></span>
 			<span></span>
@@ -214,17 +214,27 @@
 	const links = document.querySelectorAll(
 		"nav ul li:not(:last-child) a",
 	) as NodeListOf<HTMLAnchorElement>
+
 	const underline = document.querySelector(".underline") as HTMLSpanElement
+	const hamburger = document.querySelector(".hamburger") as HTMLDivElement
 
 	links.forEach((link) => {
 		link.addEventListener("mouseover", () => {
 			underline.style.left = `${link.offsetLeft + link.offsetWidth / 2}px`
 			underline.style.width = `${link.offsetWidth}px`
 		})
+
+		link.addEventListener("click", () => {
+			hamburger.classList.remove("open")
+		})
 	})
 
 	underline.parentElement.addEventListener("mouseleave", () => {
 		underline.style.width = "0"
 		underline.style.left = "unset"
+	})
+
+	hamburger.addEventListener("click", () => {
+		hamburger.classList.toggle("open")
 	})
 </script>
