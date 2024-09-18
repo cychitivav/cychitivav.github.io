@@ -211,30 +211,31 @@
 </style>
 
 <script>
-	const links = document.querySelectorAll(
-		"nav ul li:not(:last-child) a",
-	) as NodeListOf<HTMLAnchorElement>
+	document.addEventListener("astro:page-load", () => {
+		const links = document.querySelectorAll(
+			"nav ul li:not(:last-child) a",
+		) as NodeListOf<HTMLAnchorElement>
 
-	const underline = document.querySelector(".underline") as HTMLSpanElement
-	const hamburger = document.querySelector(".hamburger") as HTMLDivElement
+		const underline = document.querySelector(".underline") as HTMLSpanElement
+		const hamburger = document.querySelector(".hamburger") as HTMLDivElement
 
-	links.forEach((link) => {
-		link.addEventListener("mouseover", () => {
-			underline.style.left = `${link.offsetLeft + link.offsetWidth / 2}px`
-			underline.style.width = `${link.offsetWidth}px`
+		links.forEach((link) => {
+			link.addEventListener("mouseover", () => {
+				underline.style.left = `${link.offsetLeft + link.offsetWidth / 2}px`
+				underline.style.width = `${link.offsetWidth}px`
+			})
+
+			link.addEventListener("click", () => {
+				hamburger.classList.remove("open")
+			})
 		})
 
-		link.addEventListener("click", () => {
-			hamburger.classList.remove("open")
+		underline.parentElement.addEventListener("mouseleave", () => {
+			underline.style.width = "0"
 		})
-	})
-
-	underline.parentElement.addEventListener("mouseleave", () => {
-		underline.style.width = "0"
 		underline.style.left = "unset"
-	})
-
-	hamburger.addEventListener("click", () => {
-		hamburger.classList.toggle("open")
+		hamburger.addEventListener("click", () => {
+			hamburger.classList.toggle("open")
+		})
 	})
 </script>
