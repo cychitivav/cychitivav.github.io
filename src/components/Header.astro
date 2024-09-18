@@ -1,6 +1,11 @@
 <header {...Astro.props}>
 	<nav>
-		<div class="hamburger"><span></span><span></span><span></span></div>
+		<div class="hamburger" onclick="this.classList.toggle('open')">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
 		<span class="underline"></span>
 		<ul>
 			<li><a href="/">Home</a></li>
@@ -221,13 +226,5 @@
 	underline.parentElement.addEventListener("mouseleave", () => {
 		underline.style.width = "0"
 		underline.style.left = "unset"
-	})
-</script>
-
-<script>
-	const hamburger = document.querySelector(".hamburger") as HTMLDivElement
-
-	hamburger.addEventListener("click", () => {
-		hamburger.classList.toggle("open")
 	})
 </script>
