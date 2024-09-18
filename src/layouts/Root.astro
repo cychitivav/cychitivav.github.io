@@ -1,6 +1,5 @@
 ---
 import "@fontsource/roboto"
-import { ViewTransitions } from "astro:transitions"
 
 import Particles from "@components/Particles.astro"
 ---
@@ -22,13 +21,12 @@ import Particles from "@components/Particles.astro"
 		/>
 
 		<meta name="generator" content={Astro.generator} />
-		<ViewTransitions />
 
 		<title>Cristian Chitiva</title>
 	</head>
 
 	<body>
-		<Particles transition:persist />
+		<Particles />
 
 		<slot />
 	</body>
@@ -109,6 +107,7 @@ import Particles from "@components/Particles.astro"
 	:root {
 		height: 100svh;
 		width: 100vw;
+		scroll-behavior: smooth;
 
 		font-family: "Roboto", sans-serif;
 		font-size: clamp(16px, 1vw, 18px);
