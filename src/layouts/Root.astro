@@ -1,5 +1,6 @@
 ---
 import "@fontsource/roboto"
+import { ViewTransitions } from "astro:transitions"
 
 import Particles from "@components/Particles.astro"
 ---
@@ -21,12 +22,13 @@ import Particles from "@components/Particles.astro"
 		/>
 
 		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
 
 		<title>Cristian Chitiva</title>
 	</head>
 
 	<body>
-		<Particles />
+		<Particles transition:persist />
 
 		<slot />
 	</body>

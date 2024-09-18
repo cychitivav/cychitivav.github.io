@@ -2,7 +2,7 @@
 
 ---
 
-<div {...Astro.props} data-particles-id="particles"></div>
+<div data-particles-id="particles"></div>
 
 <script>
 	import { loadFull } from "tsparticles"
@@ -14,6 +14,7 @@
 	const container: HTMLElement = document.querySelector(`[data-particles-id="particles"]`)
 
 	const loadParticles = async () => {
+		console.log("Loading particles")
 		await loadFull(tsParticles)
 
 		await tsParticles.load({
@@ -22,7 +23,7 @@
 		})
 	}
 
-	loadParticles()
+	document.addEventListener("astro:page-load", loadParticles)
 
 	// Dark mode detection
 	const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
