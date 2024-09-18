@@ -40,9 +40,9 @@
 		padding: 5px;
 		padding-left: 10px;
 
-		// Background for scroll
-		// background: #b4b4b42b;
-		// backdrop-filter: blur(10px);
+		animation: backdrop 1s ease-in both;
+		animation-timeline: scroll();
+    animation-range: 0 100px;
 	}
 
 	li {
@@ -79,6 +79,18 @@
 		z-index: 100;
 		background: linear-gradient(90deg, #004236, #2f8872, #004236);
 		transform: translateX(-50%);
+	}
+
+	@keyframes backdrop {
+		0% {
+			backdrop-filter: blur(0);
+			background: #b4b4b400;
+		}
+
+		100% {
+			background: #b4b4b42b;
+			backdrop-filter: blur(10px);
+		}
 	}
 
 	@media (width <= 768px) {
