@@ -1,3 +1,9 @@
+---
+import Moon from "../assets/icons/Moon.astro"
+import Sun from "../assets/icons/Sun.astro"
+import PC from "../assets/icons/PC.astro"
+---
+
 <header {...Astro.props}>
 	<nav>
 		<div class="hamburger">
@@ -14,6 +20,22 @@
 			<li><a href="#projects">Projects</a></li>
 			<li><a href="#contact" class="contact">Get in Touch</a></li>
 		</ul>
+
+		<div class="theme-switcher">
+			<button title="Toggle theme"><Moon /></button>
+
+			<div class="options">
+				<button title="Light">
+					<Sun />
+				</button>
+				<button title="Dark">
+					<Moon />
+				</button>
+				<button title="System">
+					<PC />
+				</button>
+			</div>
+		</div>
 	</nav>
 </header>
 
@@ -28,7 +50,7 @@
 		right: 2.5vw;
 		z-index: 2;
 
-		--animation-time: 0.4s;
+		--animation-time: 0.3s;
 	}
 
 	ul {
@@ -42,7 +64,7 @@
 
 		animation: backdrop 1s ease-in both;
 		animation-timeline: scroll();
-    animation-range: 0 100px;
+		animation-range: 0 100px;
 	}
 
 	li {
@@ -79,6 +101,99 @@
 		z-index: 100;
 		background: linear-gradient(90deg, #004236, #2f8872, #004236);
 		transform: translateX(-50%);
+	}
+
+	.theme-switcher {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		position: relative;
+
+		button {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: center;
+
+			background-color: transparent;
+			color: #000;
+
+			border: none;
+			border-radius: 50%;
+
+			padding: 20%;
+			aspect-ratio: 1;
+			height: 2rem;
+			overflow: hidden;
+
+			cursor: pointer;
+			transition:
+				color 0.3 ease-in,
+				background-color 0.3 ease-in;
+
+			svg {
+				width: 100%;
+				height: 100%;
+				fill: currentColor;
+				flex: 0 0 auto;
+			}
+		}
+
+		&:hover .options {
+			button {
+				height: 1.5rem;
+
+				@for $i from 1 through 3 {
+					&:nth-child(#{$i}) {
+						transition-delay: $i * 0.1s;
+					}
+				}
+			}
+		}
+
+		.options {
+			position: absolute;
+			top: 100%;
+			right: 50%;
+			transform: translateX(50%);
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+
+			button {
+				height: 0;
+				background-color: #000;
+				color: #fff;
+				transition: height 0.2s ease-in;
+
+				&:first-child {
+					margin-top: 0.5rem;
+				}
+
+				&:last-child {
+					margin-bottom: 0.5rem;
+				}
+
+				&:hover {
+					background-color: #dadada;
+					color: #000;
+				}
+			}
+
+			@for $i from 1 through 3 {
+				button:nth-last-child(#{$i}) {
+					transition-delay: $i * 0.1s;
+				}
+			}
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.theme-switcher button {
+			filter: invert(1);
+		}
 	}
 
 	@keyframes backdrop {
@@ -129,6 +244,28 @@
 				transition:
 					opacity var(--animation-time) ease-in,
 					transform 10s ease-in;
+			}
+		}
+
+		.theme-switcher {
+			position: fixed;
+			top: 0;
+			left: 0;
+			padding: 2.5vh 5vw;
+			z-index: 3;
+			opacity: 0;
+			height: 0;
+
+			transition: all var(--animation-time) ease-in;
+
+			& > button {
+				padding: 0;
+			}
+
+			&:hover .options {
+				button {
+					height: 2rem;
+				}
 			}
 		}
 
@@ -188,6 +325,11 @@
 						transition-delay: $delay;
 					}
 				}
+			}
+
+			~ .theme-switcher {
+				opacity: 1;
+				height: auto;
 			}
 		}
 	}
