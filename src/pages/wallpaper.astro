@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Root.astro"
+
+import Signature from "../assets/icons/Signature.astro"
+---
+
+<Layout>
+	<Signature class="logo" />
+</Layout>
+
+<style>
+	.logo {
+		position: fixed;
+		bottom: 50%;
+		right: 50%;
+		transform: translate(50%, 50%);
+
+		fill: #8d8d8d;
+		width: 40vw;
+	}
+</style>
