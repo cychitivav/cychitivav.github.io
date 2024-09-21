@@ -1,6 +1,6 @@
 ---
 import "@fontsource/roboto"
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 
 import Particles from "@components/Particles.astro"
 ---
@@ -21,8 +21,7 @@ import Particles from "@components/Particles.astro"
 			content="developer, web, frontend, backend, robotics, software, engineer, fullstack"
 		/>
 
-		<meta name="generator" content={Astro.generator} />
-		<ViewTransitions />
+		<ClientRouter />
 
 		<title>Cristian Chitiva</title>
 	</head>
@@ -40,7 +39,7 @@ import Particles from "@components/Particles.astro"
 		flex-direction: column;
 		align-items: center;
 		overflow-y: auto;
-		padding: 0 2.5vw;
+		padding: 0 5vw;
 
 		background-image: radial-gradient(circle, #00514644 20%, #0000 60%);
 		background-color: #000;
