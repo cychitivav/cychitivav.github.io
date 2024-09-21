@@ -1,6 +1,7 @@
 ---
 import Me from "../components/Me.astro"
 import SocialLinks from "../components/SocialLinks.astro"
+import PDF from "src/assets/icons/PDF.astro"
 ---
 
 <section>
@@ -11,7 +12,12 @@ import SocialLinks from "../components/SocialLinks.astro"
 	</h1>
 	<h2>Robotics Software Engineer & Fullstack Developer</h2>
 
-	<!-- <a href="/contact"> Contact Me </a> -->
+	<a href="/resume.pdf" title="Download CV" target="_blank" class="download">
+		<span>
+			<PDF />
+			Download CV
+		</span>
+	</a>
 
 	<SocialLinks />
 </section>
@@ -21,6 +27,7 @@ import SocialLinks from "../components/SocialLinks.astro"
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: flex-start;
 		height: min(100svh, 1080px);
 		width: 100%;
 		position: relative;
@@ -40,6 +47,49 @@ import SocialLinks from "../components/SocialLinks.astro"
 		margin-bottom: 1rem;
 	}
 
+	a {
+		overflow: hidden;
+		display: inline-flex;
+		padding: 1px;
+		position: relative;
+		border-radius: 1000px;
+	}
+
+	a span {
+		display: flex;
+		align-items: center;
+		gap: 1ex;
+		padding: 0.5em 1em;
+		border-radius: 1000px;
+		backdrop-filter: blur(10px);
+		background: #000000e1;
+		transition: background 0.3s;
+
+		svg {
+			height: 1em;
+			fill: currentColor;
+		}
+	}
+
+	a:hover span {
+		background: #0000009a;
+	}
+
+	a::after {
+		content: "";
+		z-index: -1;
+		background-image: conic-gradient(from 90deg at 50% 50%, #51e4b8, #21554e, #51e4b8);
+		position: absolute;
+		inset: -200%;
+		animation: spin 3s linear infinite;
+	}
+
+	@keyframes spin {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
 	@media (width <= 768px) {
 		section {
 			align-items: center;
@@ -56,6 +106,14 @@ import SocialLinks from "../components/SocialLinks.astro"
 	@media (prefers-color-scheme: light) {
 		h1 span {
 			color: #007862;
+		}
+
+		a span {
+			background: #fff;
+		}
+
+		a:hover span {
+			background: #ffffff9a;
 		}
 	}
 </style>
