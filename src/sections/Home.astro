@@ -52,7 +52,8 @@ import PDF from "src/assets/icons/PDF.astro"
 		display: inline-flex;
 		padding: 1px;
 		position: relative;
-		border-radius: 1000px;
+		border-radius: 100px;
+		clip-path: padding-box;
 	}
 
 	a span {
@@ -60,10 +61,11 @@ import PDF from "src/assets/icons/PDF.astro"
 		align-items: center;
 		gap: 1ex;
 		padding: 0.5em 1em;
-		border-radius: 1000px;
+		border-radius: 1.1em;
 		backdrop-filter: blur(10px);
 		background: #000000e1;
 		transition: background 0.3s;
+		white-space: nowrap;
 
 		svg {
 			height: 1em;
